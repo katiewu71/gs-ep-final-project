@@ -20,11 +20,5 @@
     - `/test/java` | Holds all of the test code for your application.  
         - Tests are a critical component of app development.  
         - Tests help us confirm our code is working as expected, and can even be used to tell us how to write our code...  
-        - Learn more about Test Driven Development, TDD, here: https://hackernoon.com/introduction-to-test-driven-development-tdd-61a13bc92d92  
-  
- #### Prerequisites
- You will need these installed
-  - Java (8 or above)
-  - Maven - To install the dependencies needed for the backend
-  - NodeJS - To install the components needed to spin up the UI
-  
+        - Learn more about Test Driven Development, TDD, here: https://hackernoon.com/introduction-to-test-driven-development-tdd-61a13bc92d92
+    
