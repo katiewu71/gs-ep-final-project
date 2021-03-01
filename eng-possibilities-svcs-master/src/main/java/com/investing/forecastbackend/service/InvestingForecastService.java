@@ -1,6 +1,7 @@
 package com.investing.forecastbackend.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.investing.forecastbackend.model.ForecastRequest;
 import com.investing.forecastbackend.model.ForecastResponse;
@@ -9,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -27,9 +29,8 @@ public class InvestingForecastService {
         ObjectMapper objectMapper = new ObjectMapper();
 
         ArrayList read = (ArrayList) objectMapper.readValue(Paths
-                .get("/home/fetenh/DeepPockets/eng-possibilities-svcs/src/main/resources/data/investment-details.json")
+                .get("/Users/katiewu/Desktop/gs-ep-final-project/eng-possibilities-svcs-master/src/main/resources/data/investment-details.json")
                 .toFile(), Map.class).get("Investments");
-
         String str = objectMapper.writeValueAsString(read);
         return objectMapper.readValue(str, new TypeReference<List<InvestmentDetail>>() {
         });
@@ -46,9 +47,11 @@ public class InvestingForecastService {
     }
 
     public List<Double> getForeCast(Map<String, Double> userRequest, List<InvestmentDetail> details) {
+        System.out.println(userRequest);
         Map<Integer, Double> totalYearAmount = new HashMap<>();
         for (InvestmentDetail i : details) {
             //user input for category i
+            System.out.println(i);
             double userInvestmentPercentage = userRequest.get(i.getCategory());
             double userInvestmentDollars = (userInvestmentPercentage / 100) * 10000;
             for (int x = 0; x < 10; x++) {

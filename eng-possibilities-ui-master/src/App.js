@@ -2,8 +2,7 @@ import { Container } from "react-bootstrap";
 
 import NavBar from "./components/NavBar";
 import ForecasterHome from './pages/Forecaster'
-
-import BarChart from './BarChart';
+import InvestmentTable from './InvestmentTable'
 
 import "./App.css";
 
@@ -14,9 +13,7 @@ function App() {
         <NavBar />
         <Container fluid>
          <ForecasterHome/>
-
-         <BarChart />
-         
+         <InvestmentTable/>
         </Container>
         
       </Container>
